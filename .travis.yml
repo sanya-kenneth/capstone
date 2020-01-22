@@ -1,0 +1,20 @@
+language: python
+python:
+  - "3.6"
+
+install:
+  - pip install -r requirements.txt
+
+services:
+  - postgresql
+
+env:
+  global:
+    - SECRET='sddsdwejernefnbfbhejwjfjfjwjnd'
+
+before_script:
+  - psql -c 'CREATE DATABASE test_capstone;' -U postgres 
+
+#Command to run tests
+script:
+  - pytest
